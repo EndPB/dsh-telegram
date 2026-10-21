@@ -20,7 +20,15 @@ Bot API 看不到你账号里的频道；这个插件直接以你的会话登录
 
 仓库：<https://github.com/EndPB/dsh-telegram>
 
-1. 装进 DSH 桌面版的 profile（默认 `%USERPROFILE%\.dsh\profiles\desktop`）：
+### 在 DSH Desktop 里（推荐）
+
+1. DSH 设置 → **插件** → **添加插件**，粘贴 `https://github.com/EndPB/dsh-telegram`，点安装。
+2. 第一次会以 `build-blocked` 结束（原因见下节），点 **「允许这些脚本并重试」** 即可，不用敲命令。
+3. 重启 DSH 一次：新安装且带 `dsh.client` 的包只在启动时登记客户端模块，设置页才会出现。
+
+### 用 pnpm（DSH 的 profile 目录）
+
+1. 在 DSH 桌面版的 profile 目录（默认 `%USERPROFILE%\.dsh\profiles\desktop`）：
 
    ```powershell
    cd $env:USERPROFILE\.dsh\profiles\desktop
@@ -28,9 +36,9 @@ Bot API 看不到你账号里的频道；这个插件直接以你的会话登录
    ```
 
 2. 在同一个 profile 的 `package.json` 里，把 `@local/dsh-telegram` 加进 `dsh.profile.bundles` 数组。
-3. 重启 DSH 一次：新安装且带 `dsh.client` 的包只在启动时登记客户端模块，设置页才会出现。
+3. 重启 DSH 一次。
 
-升级：重复第 1 步拉默认分支；要钉版本就写 `…@github:EndPB/dsh-telegram#<tag 或 commit>`。
+升级：重复安装步骤拉默认分支；要钉版本就写 `…@github:EndPB/dsh-telegram#<tag 或 commit>`。
 仓库里已经提交了 `lib/` 与 `client.js`（没有 `prepare` 构建步），所以 `pnpm` 直接从 git 装出来的包即可运行。
 ### 安装时 `build-blocked` / `pnpm` 失败怎么办
 
