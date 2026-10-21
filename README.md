@@ -40,6 +40,7 @@ Bot API 看不到你账号里的频道；这个插件直接以你的会话登录
 
 升级：重复安装步骤拉默认分支；要钉版本就写 `…@github:EndPB/dsh-telegram#<tag 或 commit>`。
 仓库里已经提交了 `lib/` 与 `client.js`（没有 `prepare` 构建步），所以 `pnpm` 直接从 git 装出来的包即可运行。
+
 ### 安装时 `build-blocked` / `pnpm` 失败怎么办
 
 pnpm 11 默认拦下依赖的安装脚本，而本插件依赖的 GramJS（`telegram`）树里有三个包带 `install` / `postinstall`：
