@@ -24,6 +24,7 @@
     "lib/**/*.js",
     "cordis.patch.yml",
     "locale/*.json",
+    "assets/*.png",
     "icon.svg",
     "README.md"
   ],
