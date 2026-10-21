@@ -1,0 +1,53 @@
+{
+  "name": "dialogs",
+  "args": {},
+  "value": {
+    "ok": true,
+    "total": 90,
+    "items": [
+      {
+        "id": "-1001111111111",
+        "peerId": "-1001111111111",
+        "kind": "group",
+        "title": "示例搜索群一",
+        "username": "examplegroup1",
+        "handle": "@examplegroup1",
+        "channel": true,
+        "group": true,
+        "unread": 9214,
+        "members": 78173,
+        "last": "示例文本用于度量分页与截断预算，不含任何真实内容示例文本用于度量分页",
+        "lastDate": "2026-10-20T21:09:58.000Z",
+        "canSend": true
+      },
+      {
+        "id": "-1002222222222",
+        "peerId": "-1002222222222",
+        "kind": "group",
+        "title": "示例搜索群二",
+        "channel": true,
+        "group": true,
+        "unread": 4,
+        "members": 40166,
+        "last": "示例文本用于度量分页与截断预算，不含任何真实内容示例文本用于度量分页与截断预算，不含任何真实",
+        "lastDate": "2026-10-20T21:08:00.000Z",
+        "canSend": true
+      },
+      {
+        "id": "-1003333333333",
+        "peerId": "-1003333333333",
+        "kind": "group",
+        "title": "示例搜索群三",
+        "username": "examplegroup3",
+        "handle": "@examplegroup3",
+        "channel": true,
+        "group": true,
+        "unread": 2316,
+        "members": 15554,
+        "last": "示例文本用于度量分页与截断预算，不含任何真实内容示例文本用于度量分页与截断预算",
+        "lastDate": "2026-10-20T21:06:41.000Z",
+        "canSend": true
+      }
+    ]
+  }
+}

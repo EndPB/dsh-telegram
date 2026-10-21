@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Telegram (User Account)",
+    "description": "Sign in as your own Telegram account over MTProto: channels, messages, in-channel search, comments and links. A Settings page owns login, proxy and the send whitelist, plus a DSH bot chat and a Telegram → DSH bridge."
+  }
+}
