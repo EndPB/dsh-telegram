@@ -32,6 +32,28 @@ Bot API 看不到你账号里的频道；这个插件直接以你的会话登录
 
 升级：重复第 1 步拉默认分支；要钉版本就写 `…@github:EndPB/dsh-telegram#<tag 或 commit>`。
 仓库里已经提交了 `lib/` 与 `client.js`（没有 `prepare` 构建步），所以 `pnpm` 直接从 git 装出来的包即可运行。
+### 安装时 `build-blocked` / `pnpm` 失败怎么办
+
+pnpm 11 默认拦下依赖的安装脚本，而本插件依赖的 GramJS（`telegram`）树里有三个包带 `install` / `postinstall`：
+`bufferutil`、`utf-8-validate`（`websocket` 的可选原生加速，有预编译二进制）和 `es5-ext`（只打一行自检）。
+DSH 在 profile 里启用了 `strictDepBuilds`，所以第一次安装会以 `build-blocked` 结束，并在结果里给出 `pendingBuilds`。
+包其实已经抓取成功，只是脚本没有权限运行。
+
+任选一种放行后重试：
+
+- DSH 插件页：安装失败时点 **「允许这些脚本并重试」**；
+- 工具调用：`plugin_manager action=install_bundle` 带上
+  `approvedBuilds: ["bufferutil", "es5-ext", "utf-8-validate"]`（需要使用者先同意，授权按包名保存在该 profile）；
+- 手工：在 profile 的 `pnpm-workspace.yaml` 里加上
+
+  ```yaml
+  allowBuilds:
+    bufferutil: true
+    es5-ext: true
+    utf-8-validate: true
+  ```
+
+这三条脚本只决定 WebSocket 用不用原生加速，不跑也能正常收发消息。
 
 ## 第一次使用
 
