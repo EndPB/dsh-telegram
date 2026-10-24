@@ -52,6 +52,8 @@ DSHA 把非 0 退出码报成 `PNPM_FAILED`。所以本仓库**刻意提交了 `
 2. 装完重启 DSHA，设置页里才会出现插件的配置入口。
 
 压缩包约 2 MB（解压 6 MB）。桌面端走 pnpm 安装时这份 `node_modules` 会被忽略，不影响正常流程。
+`websocket` 硬依赖 `bufferutil` / `utf-8-validate`（原生 addon，靠 node-gyp 编译），所以仓库里这两个包换成了
+**纯 JS 实现**（`mask`/`unmask` 的 XOR 与 UTF-8 校验），没有编译产物，安卓上也能直接 import。
 
 ### 安装时 `build-blocked` / `pnpm` 失败怎么办
 
