@@ -40,6 +40,18 @@ Bot API 看不到你账号里的频道；这个插件直接以你的会话登录
 
 升级：重复安装步骤拉默认分支；要钉版本就写 `…@github:EndPB/dsh-telegram#<tag 或 commit>`。
 仓库里已经提交了 `lib/` 与 `client.js`（没有 `prepare` 构建步），所以 `pnpm` 直接从 git 装出来的包即可运行。
+### 安卓 DSHA（手机 / 平板）
+
+DSHA 用 GitHub 的 codeload 压缩包取插件，然后在设备上跑 `pnpm install`。安卓的 node-gyp 没有 `make`，
+`telegram` 依赖树里 `websocket` 的两个可选原生包（`bufferutil`、`utf-8-validate`）会编译失败，
+DSHA 把非 0 退出码报成 `PNPM_FAILED`。所以本仓库**刻意提交了 `node_modules/`**：`telegram@2.26.22` 的完整
+运行期依赖树（hoisted、无软链、已去掉那两个可选原生包）。插件管理器发现依赖已经完整，就直接跳过 pnpm，
+不联网、不编译。
+
+1. DSHA → **插件** → **从链接安装**，填 `EndPB/dsh-telegram` → 解析安装。
+2. 装完重启 DSHA，设置页里才会出现插件的配置入口。
+
+压缩包约 2 MB（解压 6 MB）。桌面端走 pnpm 安装时这份 `node_modules` 会被忽略，不影响正常流程。
 
 ### 安装时 `build-blocked` / `pnpm` 失败怎么办
 

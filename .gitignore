@@ -1,4 +1,6 @@
-node_modules/
+# node_modules/ 是刻意提交的：安卓 DSHA 上没有 make/编译工具链，
+# pnpm 安装 telegram 时会去编译 websocket 的两个可选原生包而失败（PNPM_FAILED）。
+# 插件管理器发现依赖已完整就直接使用，不再运行 pnpm。
 .measure/
 *.log
 .DS_Store
